@@ -15,7 +15,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import pdfjs from 'pdfjs-dist/build/pdf';
+import * as pdfjs from 'pdfjs-dist/build/pdf';
 import makeCancellable from 'make-cancellable-promise';
 import DocumentContext from '../DocumentContext';
 import PageContext from '../PageContext';
