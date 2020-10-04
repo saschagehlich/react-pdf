@@ -30,7 +30,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _pdf = _interopRequireDefault(require("pdfjs-dist/build/pdf"));
+var pdfjs = _interopRequireWildcard(require("pdfjs-dist/build/pdf"));
 
 var _PageContext = _interopRequireDefault(require("../PageContext"));
 
@@ -81,7 +81,7 @@ var PageSVGInternal = /*#__PURE__*/function (_PureComponent) {
       var page = _this.props.page;
       _this.renderer = page.getOperatorList();
       return _this.renderer.then(function (operatorList) {
-        var svgGfx = new _pdf["default"].SVGGraphics(page.commonObjs, page.objs);
+        var svgGfx = new pdfjs.SVGGraphics(page.commonObjs, page.objs);
         _this.renderer = svgGfx.getSVG(operatorList, _this.viewport).then(function (svg) {
           _this.setState({
             svg: svg

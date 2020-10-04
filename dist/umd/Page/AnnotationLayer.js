@@ -33,7 +33,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _pdf = _interopRequireDefault(require("pdfjs-dist/build/pdf"));
+var pdfjs = _interopRequireWildcard(require("pdfjs-dist/build/pdf"));
 
 var _makeCancellablePromise = _interopRequireDefault(require("make-cancellable-promise"));
 
@@ -183,8 +183,7 @@ var AnnotationLayerInternal = /*#__PURE__*/function (_PureComponent) {
       this.annotationLayer.innerHTML = '';
 
       try {
-        _pdf["default"].AnnotationLayer.render(parameters);
-
+        pdfjs.AnnotationLayer.render(parameters);
         this.onRenderSuccess();
       } catch (error) {
         this.onRenderError(error);

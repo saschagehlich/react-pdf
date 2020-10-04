@@ -43,7 +43,7 @@ var _makeCancellablePromise = _interopRequireDefault(require("make-cancellable-p
 
 var _mergeClassNames = _interopRequireDefault(require("merge-class-names"));
 
-var _pdf = _interopRequireDefault(require("pdfjs-dist/build/pdf"));
+var pdfjs = _interopRequireWildcard(require("pdfjs-dist/build/pdf"));
 
 var _DocumentContext = _interopRequireDefault(require("./DocumentContext"));
 
@@ -67,7 +67,7 @@ function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflec
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var PDFDataRangeTransport = _pdf["default"].PDFDataRangeTransport;
+var PDFDataRangeTransport = pdfjs.PDFDataRangeTransport;
 
 var Document = /*#__PURE__*/function (_PureComponent) {
   (0, _inherits2["default"])(Document, _PureComponent);
@@ -164,7 +164,7 @@ var Document = /*#__PURE__*/function (_PureComponent) {
               _context.prev = 15;
               // If another loading is in progress, let's cancel it
               (0, _utils.cancelRunningTask)(_this.runningTask);
-              _this.loadingTask = _pdf["default"].getDocument(_objectSpread(_objectSpread({}, source), options));
+              _this.loadingTask = pdfjs.getDocument(_objectSpread(_objectSpread({}, source), options));
               _this.loadingTask.onPassword = onPassword;
 
               if (onLoadProgress) {
